@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bilibili Reader"
+  short_description: "Read and summarize Bilibili videos from URLs."
+  default_prompt: "Use $bilibili-video-reader to watch this Bilibili video and summarize the key points."
