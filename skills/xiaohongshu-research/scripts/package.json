@@ -1,0 +1,16 @@
+{
+  "name": "xiaohongshu-research-skill",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Playwright-based Xiaohongshu research helper",
+  "scripts": {
+    "login": "node xhs-research.mjs login",
+    "search": "node xhs-research.mjs search",
+    "collect": "node xhs-research.mjs collect",
+    "research": "node xhs-research.mjs research"
+  },
+  "dependencies": {
+    "playwright": "^1.52.0"
+  }
+}

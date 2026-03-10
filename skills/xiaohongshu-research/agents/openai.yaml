@@ -1,0 +1,4 @@
+interface:
+  display_name: "小红书研究"
+  short_description: "Search Xiaohongshu with media and comment analysis"
+  default_prompt: "搜索小红书并汇总真实用户反馈，结合帖子、评论、图片和视频过滤营销内容"
