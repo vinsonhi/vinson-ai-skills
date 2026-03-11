@@ -123,3 +123,9 @@ python3 scripts/daily_briefing.py --profile ai_daily
 ## 交互菜单
 
 用户说“如意如意”时，读取 `templates.md` 并展示菜单。
+
+## 输出示例
+<img width="1644" height="17742" alt="3b25c22f43f1cef670db383538de352b" src="https://github.com/user-attachments/assets/b5b06c51-7b81-4773-8fe0-2d1ab3dbe7e9" />
+<img width="1512" height="1684" alt="image" src="https://github.com/user-attachments/assets/9584cb18-fae4-49ce-a0f6-cc52d0862b93" />
+
+
