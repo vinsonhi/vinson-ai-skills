@@ -5,6 +5,15 @@
 - 新闻日报：综合、财经、科技、AI 深度
 - 美股股票早报：自选股票价格、涨跌、关键驱动、重要新闻
 
+## 严格规则
+
+- 合并版日报必须先生成或读取各板块源文件，再合并。
+- `general_report.md`、`finance_report.md`、`tech_report.md`、`ai_daily_report.md` 在合并稿里必须原文复用，不能为了统一口吻重写。
+- 允许新增的只有顶层标题、板块分隔、美股板块和缺口说明。
+- 如果用户直接给了某个板块的完整版本，按用户版本原文覆盖。
+- 缺数据直接标注，不补推断。
+- 参考示例见 `examples/merged_daily_report_2026-03-11.md`。
+
 ## 安装
 
 最简单的说法：
@@ -55,6 +64,23 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 ## 日报格式示例
 
 下面不是完整报告，只是最终呈现形式的示意。真实输出会更长，结尾按 `...省略` 收束。
+
+### 合并版示意
+
+```markdown
+# 合并版中文日报 | 2026-03-11
+
+- 合并来源：general_report.md / finance_report.md / tech_report.md / ai_daily_report.md + 美股股票早报
+- 说明：前四个板块直接复用源日报原文。
+
+## 一、综合早报（原文合并）
+
+...general_report.md 原文...
+
+## 二、财经早报（原文合并）
+
+...finance_report.md 原文...
+```
 
 ### 综合早报示例
 

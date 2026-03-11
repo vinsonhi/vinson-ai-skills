@@ -7,6 +7,20 @@ description: "自用日报 skill。用于生成综合早报、财经早报、科
 
 用于生成中文日报。默认先保存到 `reports/YYYY-MM-DD/`，再把完整 Markdown 展示给用户。
 
+## 严格规则
+
+- 如果用户要的是“合并版日报”或要求把综合/财经/科技/AI 深度/美股放进同一个文件，必须先生成或读取各板块源文件，再做合并。
+- 合并时，`general_report.md`、`finance_report.md`、`tech_report.md`、`ai_daily_report.md` 这四个板块把源文件内容视为最终内容，直接拼接，不要二次改写、二次摘要、重写观点。
+- 合并稿允许新增的内容只有：
+  - 顶部总标题、生成时间、数据窗口说明；
+  - 板块分隔符和“原文合并”标签；
+  - 美股股票早报板块；
+  - 明确的数据缺口说明。
+- 如果某一板块已有当天源文件，就优先复用该源文件；不要为了“统一文风”重写。
+- 如果用户直接给了某个板块的完整版本，按用户版本原文覆盖该板块，不要改写措辞。
+- 缺数据就写缺口，不补推断性内容。
+- 参考示例：`examples/merged_daily_report_2026-03-11.md`
+
 ## 安装
 
 最简单的说法：
@@ -74,6 +88,30 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 ## 日报格式示例
 
 说明里要给出最终 Markdown 的样子，不只讲规则。每个日报板块至少放 1-2 个条目示例，最后用 `...省略` 表示完整报告会更长。
+
+### 合并版日报示例约束
+
+```markdown
+# 合并版中文日报 | 2026-03-11
+
+- 生成时间：2026-03-11 14:58 CST
+- 合并来源：general_report.md / finance_report.md / tech_report.md / ai_daily_report.md + 美股股票早报
+- 说明：综合/财经/科技/AI 深度板块以下均直接来自已有日报内容。
+
+---
+
+## 一、综合早报（原文合并）
+
+# 🌅 综合早报 | 2026-03-11
+
+...这里直接贴 general_report.md 原文...
+
+---
+
+## 五、美股股票早报（默认观察名单）
+
+...这里放美股正文...
+```
 
 ### 综合早报示例
 
@@ -211,6 +249,24 @@ python3 scripts/daily_briefing.py --profile ai_daily
   - `reports/YYYY-MM-DD/tech_report.md`
   - `reports/YYYY-MM-DD/ai_daily_report.md`
 
+## 合并版日报工作流
+
+1. 先确认是否已有以下源文件：
+   - `reports/YYYY-MM-DD/general_report.md`
+   - `reports/YYYY-MM-DD/finance_report.md`
+   - `reports/YYYY-MM-DD/tech_report.md`
+   - `reports/YYYY-MM-DD/ai_daily_report.md`
+2. 如果不存在，就先按对应 profile 生成。
+3. 合并时按以下顺序直接拼接：
+   - 综合早报
+   - 财经早报
+   - 科技早报
+   - AI 深度日报
+   - 美股股票早报
+4. 对前四个板块，直接贴源文件原文，不改写。
+5. 美股板块单独生成；如果用户提供了更完整的版本，用用户版本覆盖。
+6. 最终合并稿保存为用户指定路径；如果用户没指定，保存到 `reports/YYYY-MM-DD/merged_daily_report.md`。
+
 ## 美股股票早报工作流
 
 1. 读取用户给的股票列表；如果没给，就用默认观察名单。
@@ -250,4 +306,3 @@ python3 scripts/daily_briefing.py --profile ai_daily
 ## 交互菜单
 
 用户说“如意如意”时，读取 `templates.md` 并展示菜单。
-
