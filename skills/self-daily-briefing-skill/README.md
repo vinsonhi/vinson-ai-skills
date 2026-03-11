@@ -12,7 +12,11 @@
 - 允许新增的只有顶层标题、板块分隔、美股板块和缺口说明。
 - 如果用户直接给了某个板块的完整版本，按用户版本原文覆盖。
 - 缺数据直接标注，不补推断。
-- 参考示例见 `examples/merged_daily_report_2026-03-11.md`。
+- 默认同时输出 `.md` 和 `.pdf` 两份。
+- PDF 优先保留 Markdown 原始阅读感和链接，不做自创重排。
+- 参考示例见：
+  - `examples/merged_daily_report_2026-03-11.md`
+  - `examples/merged_daily_report_2026-03-11.pdf`
 
 ## 安装
 
@@ -72,6 +76,7 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 
 - 合并来源：general_report.md / finance_report.md / tech_report.md / ai_daily_report.md + 美股股票早报
 - 说明：前四个板块直接复用源日报原文。
+- 输出文件：`merged_daily_report.md` + `merged_daily_report.pdf`
 
 ## 一、综合早报（原文合并）
 

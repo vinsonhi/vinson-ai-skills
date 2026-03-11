@@ -5,7 +5,7 @@ description: "自用日报 skill。用于生成综合早报、财经早报、科
 
 # 自用日报 skill
 
-用于生成中文日报。默认先保存到 `reports/YYYY-MM-DD/`，再把完整 Markdown 展示给用户。
+用于生成中文日报。默认先保存到 `reports/YYYY-MM-DD/`，并同时输出 Markdown 与便于阅读的 PDF。
 
 ## 严格规则
 
@@ -19,7 +19,10 @@ description: "自用日报 skill。用于生成综合早报、财经早报、科
 - 如果某一板块已有当天源文件，就优先复用该源文件；不要为了“统一文风”重写。
 - 如果用户直接给了某个板块的完整版本，按用户版本原文覆盖该板块，不要改写措辞。
 - 缺数据就写缺口，不补推断性内容。
-- 参考示例：`examples/merged_daily_report_2026-03-11.md`
+- PDF 要尽量保留 Markdown 原始阅读结构，优先走“Markdown -> HTML 阅读页 -> 浏览器导出 PDF”，不要自创杂志式重排。
+- 参考示例：
+  - `examples/merged_daily_report_2026-03-11.md`
+  - `examples/merged_daily_report_2026-03-11.pdf`
 
 ## 安装
 
@@ -248,6 +251,7 @@ python3 scripts/daily_briefing.py --profile ai_daily
   - `reports/YYYY-MM-DD/finance_report.md`
   - `reports/YYYY-MM-DD/tech_report.md`
   - `reports/YYYY-MM-DD/ai_daily_report.md`
+  - 如用户要求便于阅读的导出，再额外输出同名 `.pdf`
 
 ## 合并版日报工作流
 
@@ -265,7 +269,10 @@ python3 scripts/daily_briefing.py --profile ai_daily
    - 美股股票早报
 4. 对前四个板块，直接贴源文件原文，不改写。
 5. 美股板块单独生成；如果用户提供了更完整的版本，用用户版本覆盖。
-6. 最终合并稿保存为用户指定路径；如果用户没指定，保存到 `reports/YYYY-MM-DD/merged_daily_report.md`。
+6. 最终合并稿默认同时输出两份：
+   - `reports/YYYY-MM-DD/merged_daily_report.md`
+   - `reports/YYYY-MM-DD/merged_daily_report.pdf`
+7. 如果用户指定路径，则在用户路径下保存同名 `.md` 和 `.pdf`。
 
 ## 美股股票早报工作流
 
@@ -282,6 +289,7 @@ python3 scripts/daily_briefing.py --profile ai_daily
    - 重要新闻链接
    - 一句话判断
 5. 保存到 `reports/YYYY-MM-DD/us_stocks_report.md`
+6. 如用户要求便于阅读的导出，再额外输出 `reports/YYYY-MM-DD/us_stocks_report.pdf`
 
 ### 美股股票早报模板
 
