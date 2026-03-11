@@ -5,6 +5,16 @@ description: Read and summarize Bilibili videos from video URLs by downloading a
 
 # Bilibili Video Reader
 
+## Install
+
+Simplest instruction for another AI tool:
+
+```text
+帮我安装这个 skill：https://github.com/vinsonhi/AI-Skills/tree/main/skills/bilibili-video-reader
+```
+
+If the tool supports GitHub path based skill installation, this is usually enough.
+
 Use this skill when the request requires the video's spoken content, not just title, description, or comments.
 
 ## Workflow

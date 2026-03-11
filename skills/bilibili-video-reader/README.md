@@ -16,6 +16,16 @@
 
 ## Runtime Notes
 
+## 安装
+
+最简单的说法：
+
+```text
+帮我安装这个 skill：https://github.com/vinsonhi/AI-Skills/tree/main/skills/bilibili-video-reader
+```
+
+如果对方支持 GitHub 仓库路径安装，通常这句话就够了。
+
 依赖：
 
 - `yt-dlp`

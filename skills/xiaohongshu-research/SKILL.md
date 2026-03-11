@@ -5,6 +5,16 @@ description: Research Xiaohongshu through logged-in browser automation with mobi
 
 # Xiaohongshu Research
 
+## Install
+
+Simplest instruction for another AI tool:
+
+```text
+帮我安装这个 skill：https://github.com/vinsonhi/AI-Skills/tree/main/skills/xiaohongshu-research
+```
+
+If the tool supports GitHub path based skill installation, this is usually enough.
+
 Use browser automation by default:
 
 - desktop web for search-result discovery
