@@ -1,4 +1,4 @@
-# AI-Skills
+# vinson-ai-skills
 
 个人正在使用的 AI Skills 集合。
 
