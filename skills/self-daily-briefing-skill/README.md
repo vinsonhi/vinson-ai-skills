@@ -83,6 +83,7 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 - 输出文件：`merged_daily_report.md` + `merged_daily_report.pdf`
 - 排版规则：合并稿保留外层章节标题，去掉各源文件自身的首个 `# 标题`，避免重复大标题。
 - 标题风格：合并稿主标题使用 `Morning Brief`；外层章节标题保留 emoji，例如 `🌅 一、综合早报`。
+- 标题层级：主标题 `#`，外层章节 `##`，章节内部的小分组与“数据缺口”统一用 `###`。
 
 ## 🌅 一、综合早报
 

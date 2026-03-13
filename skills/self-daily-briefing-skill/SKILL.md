@@ -13,6 +13,7 @@ description: "自用日报 skill。用于生成综合早报、财经早报、科
 - 合并时，`general_report.md`、`finance_report.md`、`tech_report.md`、`ai_daily_report.md` 这四个板块把源文件内容视为最终内容，直接拼接，不要二次改写、二次摘要、重写观点。
 - 合并展示时，为避免双层标题重复，保留合并稿里的外层章节标题，去掉各源文件自身的首个 `# 标题` 行后再拼接正文。
 - 合并稿的章节标题应保留视觉识别，推荐使用带 emoji 的外层标题，例如 `🌅 一、综合早报`、`💰 二、财经早报`。
+- 标题层级应保持一致：合并稿主标题用 `#`，五个外层章节用 `##`，章节内部的小分组和“数据缺口”统一用 `###`。
 - 合并稿允许新增的内容只有：
   - 顶部总标题、生成时间、数据窗口说明；
   - 板块分隔符；
@@ -112,7 +113,10 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 ---
 
 ## 🌅 一、综合早报
-...这里直接贴 general_report.md 原文...
+
+### 🌍 全网速览
+
+...这里直接贴 general_report.md 去掉首个 `# 标题` 后的正文...
 
 ---
 
