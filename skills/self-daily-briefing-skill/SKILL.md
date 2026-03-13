@@ -87,6 +87,12 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
   - 涨跌幅：用最新价和昨收价计算
   - 驱动因素：公司 IR、财报、官方博客、官方新闻稿
   - 重要新闻：优先 Reuters，其次公司官网和权威媒体
+- 时间口径规则：
+  - 默认使用“生成时最新价快照”，不是自动回退成“上一交易日收盘后版本”。
+  - 全部股票必须来自同一轮 `web.finance` 查询，不能混用不同时间点或不同来源的价格。
+  - 报告顶部必须写清 `as of` 时间；如果美股正在交易，要明确写“盘中最新价快照”。
+  - 只有当用户明确要求“收盘版 / 复盘版 / 对应美东某交易日收盘后版本”时，才允许按收盘口径写，并且标题和注释都要写清对应交易日。
+  - 分析和一句话判断必须和同一轮价格口径一致；不能拿前一日收盘分析去解释当前盘中价格。
 
 ## 日报格式示例
 
@@ -95,7 +101,7 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 ### 合并版日报示例约束
 
 ```markdown
-# 合并版中文日报 | 2026-03-11
+# Morning Brief | 2026-03-11
 
 - 生成时间：2026-03-11 14:58 CST
 - 合并来源：general_report.md / finance_report.md / tech_report.md / ai_daily_report.md + 美股股票早报
@@ -277,26 +283,30 @@ python3 scripts/daily_briefing.py --profile ai_daily
 ## 美股股票早报工作流
 
 1. 读取用户给的股票列表；如果没给，就用默认观察名单。
-2. 用 `web.finance` 获取每只股票的最新价格和昨收。
+2. 用一次 `web.finance` 调用获取所有股票的最新价格和昨收，锁定为同一轮行情快照。
 3. 用搜索获取近 1-7 天的重要新闻：
    - 优先 Reuters
    - 其次公司 IR / 新闻稿
    - 再其次权威媒体
-4. 对每只股票输出：
+4. 先确定并写明价格时间口径：
+   - 默认：`生成时最新价快照`
+   - 仅在用户明确要求时：`上一交易日收盘后版本`
+5. 对同一份报告里的所有股票，判断必须围绕同一轮价格口径来写；如果当天缺少个股催化，要明确写“主要受板块 / 市场情绪驱动”。
+6. 对每只股票输出：
    - 最新价
    - 较昨收变动（绝对值和百分比）
    - 关键因素
    - 重要新闻链接
    - 一句话判断
-5. 保存到 `reports/YYYY-MM-DD/us_stocks_report.md`
-6. 如用户要求便于阅读的导出，再额外输出 `reports/YYYY-MM-DD/us_stocks_report.pdf`
+7. 保存到 `reports/YYYY-MM-DD/us_stocks_report.md`
+8. 如用户要求便于阅读的导出，再额外输出 `reports/YYYY-MM-DD/us_stocks_report.pdf`
 
 ### 美股股票早报模板
 
 ```markdown
 # 美股股票早报 | YYYY-MM-DD
 
-> 注：如用户处于亚洲时区，要明确这是对应“美东 YYYY-MM-DD 交易日”的收盘后版本。
+> 注：以下价格为北京时间 YYYY-MM-DD HH:MM 对应的盘中最新价快照；如用户明确要求收盘版，再改写为对应美东交易日收盘后版本。
 
 | Ticker | 最新价 | 较昨收变动 | 一句话判断 |
 |---|---:|---:|---|

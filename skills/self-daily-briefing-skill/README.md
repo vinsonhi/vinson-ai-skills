@@ -57,6 +57,10 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
   - 行情：`web.finance`
   - 驱动：公司 IR、财报、官方博客、官方新闻稿
   - 新闻：优先 Reuters，其次公司官网和权威媒体
+- 时间口径：
+  - 默认是“生成时最新价快照”
+  - 只有用户明确要求时才写“上一交易日收盘后版本”
+  - 同一份报告里的所有股票必须来自同一轮行情快照
 - 输出内容：
   - 股票代码
   - 最新价
@@ -72,7 +76,7 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 ### 合并版示意
 
 ```markdown
-# 合并版中文日报 | 2026-03-11
+# Morning Brief | 2026-03-11
 
 - 合并来源：general_report.md / finance_report.md / tech_report.md / ai_daily_report.md + 美股股票早报
 - 说明：前四个板块直接复用源日报原文。
@@ -176,7 +180,7 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 ```markdown
 # 美股股票早报 | 2026-03-11
 
-> 注：对应美东 2026-03-10 交易日收盘后版本。
+> 注：以下价格为北京时间 2026-03-11 14:58 对应的盘中最新价快照；如果要收盘版，需要明确写成对应美东 2026-03-10 交易日收盘后版本。
 
 | Ticker | 最新价 | 较昨收变动 | 一句话判断 |
 |---|---:|---:|---|
