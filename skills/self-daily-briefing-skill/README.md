@@ -81,12 +81,14 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 - 合并来源：general_report.md / finance_report.md / tech_report.md / ai_daily_report.md + 美股股票早报
 - 说明：前四个板块直接复用源日报原文。
 - 输出文件：`merged_daily_report.md` + `merged_daily_report.pdf`
+- 排版规则：合并稿保留外层章节标题，去掉各源文件自身的首个 `# 标题`，避免重复大标题。
+- 标题风格：合并稿主标题使用 `Morning Brief`；外层章节标题保留 emoji，例如 `🌅 一、综合早报`。
 
-## 一、综合早报（原文合并）
+## 🌅 一、综合早报
 
 ...general_report.md 原文...
 
-## 二、财经早报（原文合并）
+## 💰 二、财经早报
 
 ...finance_report.md 原文...
 ```
