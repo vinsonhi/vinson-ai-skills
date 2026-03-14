@@ -76,11 +76,26 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 - 适用场景：要看前沿论文和 AI 行业观点
 - 信息源：
   - Hugging Face Papers
+  - X Following AI（登录个人 X 账号后抓取已关注博主热帖）
+  - X Recommended AI（登录个人 X 账号后抓取推荐流热帖）
   - ChinAI
   - Ben's Bites
   - One Useful Thing
   - Memia
   - Interconnects
+
+#### AI 深度日报里的 X 板块规则
+
+- X 不是匿名抓公开搜索，而是复用用户登录后的个人时间线。
+- 必须同时看两路：
+  - `Following`
+  - `Recommended / For you`
+- 数据窗口默认只看最近 24 小时。
+- 热度排序不能只看点赞，要综合 replies / reposts / likes / views / bookmarks。
+- 如果推文里带外链，优先打开外链正文再写 `Summary` 和 `Deep Dive`，不要只复述发帖文案。
+- 如果没有外链，再基于推文本身做摘要和解读。
+- 最终输出仍要遵守日报格式：`Source`、`Time`、`Summary`、`Deep Dive`。
+- 缺正文就写缺口，不要把猜测当事实。
 
 ### 5. 美股股票早报
 - 适用场景：要看自选股票的最新价格、涨跌、驱动因素和重要新闻

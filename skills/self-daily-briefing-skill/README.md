@@ -49,8 +49,24 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 - 输出内容：AI 前沿、开发者工具、创业产品
 
 ### AI 深度日报
-- 信息源：Hugging Face Papers、ChinAI、Ben's Bites、One Useful Thing、Memia、Interconnects
+- 信息源：Hugging Face Papers、X Following AI、X Recommended AI、ChinAI、Ben's Bites、One Useful Thing、Memia、Interconnects
 - 输出内容：论文摘要、创新点、影响、行业观点
+
+### AI 深度日报中的 X / 推特板块
+
+AI 深度日报新增了一个“X 热帖跟踪”来源，分成两路：
+
+- `X Following AI`：抓你已经关注的账号时间线
+- `X Recommended AI`：抓 X 首页推荐流
+
+规则：
+
+- 依赖你自己的登录态，不是匿名抓公开搜索页。
+- 抓取时必须同时看 `Following` 和 `For you / 推荐` 两个时间线。
+- 只保留最近 24 小时内、且命中 AI 关键词的帖子。
+- 热度判断要综合 replies / reposts / likes / views / bookmarks。
+- 如果帖子带外链，优先阅读外链正文再写摘要；没有外链再基于帖子本身写。
+- 输出格式仍然使用 `Source`、`Time`、`Summary`、`Deep Dive`。
 
 ### 美股股票早报
 - 信息源：
