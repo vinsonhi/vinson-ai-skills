@@ -4,7 +4,7 @@
 
 给用户的自选股票生成一份中文日报，覆盖价格变化、关键驱动和重要新闻。
 
-如果 `instructions/us_stocks_watchlist_default.txt` 为空，说明这是一份可复用模板版本，默认不内置任何个人观察名单；此时应优先使用用户显式提供的股票列表。
+如果 `instructions/us_stocks_watchlist_default.txt` 为空，说明这是一份可复用模板版本，默认不内置任何个人观察名单；此时必须先向用户要股票列表，不能自行猜测。
 
 ## 必带字段
 
