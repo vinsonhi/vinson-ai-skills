@@ -12,6 +12,7 @@
 ## ⚠️ Anti-Laziness Protocol
 1.  **Volume**: Output MUST contain at least **15 items** across all sections.
 2.  **Depth**: For papers and newsletters, provide **2-3 bullet points** of analysis (Why it matters, Key takeaway).
+3.  **Logged-in sources cannot be silently skipped**: if X or any other required logged-in source lands on login / QR / verification flow, stop and wait for the user to restore the session. Do not mark it as a normal data gap and do not switch to an anonymous replacement route.
 
 ## 📝 Report Structure
 
@@ -37,5 +38,4 @@
     - **Summary**: Concise overview of the newsletter topic.
     - **Insight**: 💡 Strategic implication or key takeaway.
     ```
-
 

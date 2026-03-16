@@ -91,3 +91,32 @@ I attempted to construct a search query for the Algolia HN API by simply joining
 91: 1.  **CLI Output First**: Always prioritze stdout of the current tool execution as the ultimate source of truth.
 92: 2.  **Verify Timestamp**: Before reading any "raw" or "cache" file, check its last modified time or internal date fields.
 93: 3.  **Strict Path Adherence**: Follow the data storage patterns defined in documentation (`reports/` folder) rather than guessing where temporary files might be.
+
+---
+
+## 📌 Issue: Morning Brief PDF Export Drift | 日报 PDF 导出链路漂移 (2026-03-16)
+
+### 1. The Error (错误现场)
+- **First failure**: I used `reportlab` to produce the final Morning Brief PDF. The file opened, but it no longer matched the HTML reading page. Quotes, tables, spacing, and pagination were all reflowed.
+- **Second failure**: I switched to browser print, but passed the full HTML through a `data:` URL. The export completed without a hard error, yet the PDF stopped halfway through the document and dropped the later sections.
+- **Review failure**: I initially checked the first pages only and treated the export as "fixed" before confirming the tail of the document.
+
+### 2. The Root Cause (根本原因)
+- **Wrong fallback model**: `reportlab` is for programmatic page composition, not faithful HTML-to-PDF rendering.
+- **Unsafe browser input**: `data:` URL is not a safe carrier for long HTML documents; it can truncate content silently.
+- **Bad acceptance criteria**: Checking file size, producer, or first-page visuals is insufficient for long reports. The real bug was at the tail.
+
+### 3. The Fix (修复方案)
+- **Correct path**: `Markdown -> complete HTML file -> browser opens the real HTML page -> browser print to PDF`.
+- **Hard ban**: no `data:` URL for long-form HTML PDF export.
+- **Hard ban**: no `reportlab` as the default renderer when fidelity to HTML is required.
+- **Required verification**:
+  1. Run `pdfinfo` and sanity-check page count.
+  2. Run `pdftotext` on the PDF and compare its tail with the HTML tail.
+  3. Render the last 1-2 PDF pages to PNG and inspect them manually.
+  4. Do not ship if the PDF tail does not reach the source HTML tail.
+
+### 4. Lesson (教训)
+- A PDF that opens correctly can still be wrong.
+- For long reports, the tail is the truth.
+- If the only available fallback changes the rendering model, that is not a safe fallback; it is a different output and must be treated as a failure for this task.
