@@ -13,12 +13,13 @@
 
 ### 美股股票早报默认观察名单
 
-`ASX,CRWV,NBIS,IREN,NVDA,AMD,GOOG,TSM`
+可复用版本默认留空，请在运行时显式提供，例如：
+`美股股票早报：TICKER_A,TICKER_B`
 
 ### 自由输入示例
 
 - `综合早报`
 - `美股股票早报`
-- `美股股票早报：NVDA,AMD,TSM`
+- `美股股票早报：TICKER_A,TICKER_B`
 - `科技早报 + AI 深度日报`
 - `合并版中文日报`

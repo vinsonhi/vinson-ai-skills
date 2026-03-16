@@ -371,98 +371,36 @@
 
 ---
 
-## 五、美股股票早报（默认观察名单）
+## 五、美股股票早报（示意模板）
 
-这是基于**美东时间 2026-03-10 收盘后/盘后最新成交**整理的版本。因为你这边现在已经是 **2026-03-11（上海）**，美股当天正式收盘数据对应的是美国 **3 月 10 日** 这一交易日。
+以下板块在可复用仓库中只保留结构示意，不内置任何个人观察名单或具体自选股案例。
 
-# 美股股票早报 | 2026-03-11（对应美股 2026-03-10 交易日）
+# 美股股票早报 | 2026-03-11
 
-> 注：`ASX` 这里指的是 **ASE Technology Holding（NYSE: ASX）**，不是澳交所。
+> 注：此处应写清价格口径，例如“北京时间 YYYY-MM-DD HH:MM 的盘中快照”或“对应美东 YYYY-MM-DD 交易日收盘后版本”。
 
 | Ticker | 最新价 | 较昨收变动 | 一句话判断 |
 |---|---:|---:|---|
-| ASX | $21.71 | +0.04 / +0.19% | AI 封装链基本面强，但当天缺少强催化，走势偏稳 |
-| CRWV | $74.92 | +0.50 / +0.67% | AI 云基础设施情绪修复，但市场仍在消化高投入和诉讼/执行风险 |
-| NBIS | $96.43 | +1.36 / +1.43% | 扩张新闻继续支撑估值，属于今天最强的一档 |
-| IREN | $38.12 | -0.74 / -1.91% | 利好很多，但资金更担心后续融资和大额 CapEx 压力 |
-| NVDA | $184.77 | +2.13 / +1.16% | GTC 预期和 Rubin 生态继续推升情绪 |
-| AMD | $203.23 | +0.56 / +0.28% | Meta 大单逻辑还在，但日内表现偏温和 |
-| GOOG | $306.93 | +0.95 / +0.31% | Cloud/AI 增长在支撑股价，但高 CapEx 约束估值弹性 |
-| TSM | $347.09 | -1.60 / -0.46% | 2 月营收同比强、环比回落，市场更像按“正常季节性回调”解读 |
+| TICKER_A | $100.00 | +1.25 / +1.27% | 核心催化延续，短线偏强 |
+| TICKER_B | $55.20 | -0.40 / -0.72% | 缺少新增催化，走势偏震荡 |
 
-## 1. ASX
-- **最新股价**：$21.71
-- **较昨天**：+0.19%
-- **关键因素**：核心逻辑还是 AI 先进封装/测试需求。ASE 在 2026 年 2 月披露的 4Q25 业绩里，4Q 营收 **NT$177,915m**，同比增 **9.6%**；ATM 业务营收 **NT$109,707m**，同比增 **24.2%**，说明先进封装景气度仍在。
+## 1. TICKER_A
+- **最新股价**：$100.00
+- **较昨天**：+1.27%
+- **关键因素**：新品预期、客户采用、生态合作。
 - **重要新闻**：
-  - [ASE 4Q25 / FY25 业绩](https://www.prnewswire.com/news-releases/ase-technology-holding-co-ltd-reports-its-unaudited-consolidated-financial-results-for-the-fourth-quarter-and-the-full-year-of-2025-302679779.html)
-- **我的判断**：今天 ASX 没看到新的强公司催化，股价更像是在跟随 AI 半导体供应链的大框架走，这里属于**稳但不爆发**。
+  - [公司官方新闻](https://example.com)
+- **我的判断**：主线逻辑未破坏，资金仍在交易核心叙事。
 
-## 2. CRWV
-- **最新股价**：$74.92
-- **较昨天**：+0.67%
-- **关键因素**：CoreWeave 的核心支撑还是高增长。公司 2026-02-26 公布 FY25 营收 **$5.131B**，并披露 **$66.8B revenue backlog**，而且活跃电力容量已超过 **850MW**。但另一面，市场也一直在盯着它的高资本开支、亏损和执行风险。
+## 2. TICKER_B
+- **最新股价**：$55.20
+- **较昨天**：-0.72%
+- **关键因素**：缺少新增催化，更多受板块情绪影响。
 - **重要新闻**：
-  - [CoreWeave FY25 / 4Q25 业绩](https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Fourth-Quarter-and-Fiscal-Year-2025-Results/)
-- **我的判断**：今天这点上涨，我更倾向于解读为**AI infra 板块情绪修复**，而不是有新的决定性利好。这条是**我基于公开信息的推断**。
-
-## 3. NBIS
-- **最新股价**：$96.43
-- **较昨天**：+1.43%
-- **关键因素**：Nebius 今天最明确的催化是**3 月 10 日官方宣布扩张亚太业务**。公司在公告里直接写到，2025 年收入同比增长 **479%**，合同积压超过 **$20B**，并瞄准 2026 年底 **$7B-$9B ARR**。再往前一周，Nebius 还拿到了 Missouri 的首个 **GW 级 AI factory** 项目审批。
-- **重要新闻**：
-  - [Nebius 扩张亚太业务，2026-03-10](https://nebius.com/newsroom/nebius-expands-into-asia-pacific-region-to-support-rapid-global-growth)
-  - [Nebius 获批建设首个 GW 级 AI 工厂，2026-03-03](https://assets.nebius.com/assets/026526f1-7b2b-4449-961d-d4e901b4c5f8/20260303%20Nebius%20secures%20approval%20for%20its%20first%20gigawatt-scale%20AI%20factory.pdf?cache-buster=2026-03-03T20%3A47%3A40.884Z)
-  - [Nebius 4Q25 / FY25 业绩](https://nebius.com/newsroom/nebius-reports-fourth-quarter-and-full-year-2025-financial-results)
-- **我的判断**：NBIS 今天上涨是**有明确新闻支撑**的，不只是板块 beta。
-
-## 4. IREN
-- **最新股价**：$38.12
-- **较昨天**：-1.91%
-- **关键因素**：基本面消息其实偏强。3 月 4 日公司宣布新增采购 **50,000 张 NVIDIA B300 GPU**，总 GPU fleet 提到 **150,000**；按公司口径，2026 年底对应 AI Cloud annualized run-rate revenue 超 **$3.7B**。但市场担心的是另一面：未来 CapEx 很大，公司也同步保留了股权融资工具。
-- **重要新闻**：
-  - [IREN 扩容到 150,000 GPUs，2026-03-04](https://www.globenewswire.com/news-release/2026/03/04/3249758/0/en/IREN-Expands-AI-Cloud-Capacity-to-150-000-GPUs.html)
-  - [IREN Q2 FY26 业绩，2026-02-05](https://rss.globenewswire.com/news-release/2026/02/05/3233417/0/en/IREN-Reports-Q2-FY26-Results.html)
-- **我的判断**：今天下跌更像是**资金在重新计价融资摊薄和执行压力**，不是利空新闻本身变差。
-
-## 5. NVDA
-- **最新股价**：$184.77
-- **较昨天**：+1.16%
-- **关键因素**：主要是 **GTC 2026（3 月 16-19 日）预期升温**，以及 Rubin 平台生态继续扩大。NVIDIA 最近官方还宣布与 Lumentum 建立多年的光学器件合作，并投资 **$2B** 支持其扩产；Rubin 平台的官方材料里也点名了 CoreWeave、Google、Meta、Microsoft、Nebius 等一大批生态伙伴。
-- **重要新闻**：
-  - [NVIDIA GTC 2026 官方预告](https://nvidianews.nvidia.com/news/nvidia-ceo-jensen-huang-and-global-technology-leaders-to-showcase-age-of-ai-at-gtc-2026)
-  - [NVIDIA 与 Lumentum 战略合作，2026-03-02](https://nvidianews.nvidia.com/_gallery/download_pdf/69a58a513d6332d72ae626bb/)
-  - [Rubin 平台生态伙伴名单](https://nvidianews.nvidia.com/_gallery/download_pdf/695c39b23d633240d175d8e6/)
-- **我的判断**：NVDA 今天就是典型的**会前预热行情**。
-
-## 6. AMD
-- **最新股价**：$203.23
-- **较昨天**：+0.28%
-- **关键因素**：核心还是 2 月 24 日 AMD 和 Meta 官宣的 **6GW 多代 GPU 部署协议**。这单非常关键，因为它把 AMD 从“有 AI 芯片故事”往“有超大规模真实客户部署”再推进了一步。
-- **重要新闻**：
-  - [AMD 与 Meta 扩大战略合作，2026-02-24](https://www.amd.com/en/newsroom/press-releases/2026-2-24-amd-and-meta-announce-expanded-strategic-partnersh.html)
-  - [对应 8-K / 官方文件](https://ir.amd.com/financial-information/sec-filings/content/0000002488-26-000045/amd-20260223.htm)
-- **我的判断**：AMD 当天涨幅不大，不代表逻辑弱，更像是**大涨后的消化**。
-
-## 7. GOOG
-- **最新股价**：$306.93
-- **较昨天**：+0.31%
-- **关键因素**：GOOG 现在的交易主线很清楚，一边是 **Cloud 和 Gemini 带来的增长**，一边是 **2026 年 $175B-$185B CapEx** 对现金流和估值的压力。今天偏正面的边际信息是 Google 在 3 月 10 日继续往 Workspace 推 Gemini 更新。
-- **重要新闻**：
-  - [Alphabet 4Q25 / FY25 业绩与电话会](https://abc.xyz/investor/events/event-details/2026/2025-Q4-Earnings-Call-2026-Dr_C033hS6/default.aspx)
-  - [Google Workspace Gemini 更新，2026-03-10](https://blog.google/products-and-platforms/products/workspace/gemini-workspace-updates-march-2026/)
-- **我的判断**：GOOG 现在是**基本面强，但 CapEx 太大导致估值扩张受限**的状态。
-
-## 8. TSM
-- **最新股价**：$347.09
-- **较昨天**：-0.46%
-- **关键因素**：今天最直接的消息就是 TSMC 在 **3 月 10 日** 公布了 **2 月营收**：**NT$317,657m**，同比增 **22.2%**，但环比 1 月回落。前两个月累计营收 **NT$718,912m**，同比增 **29.9%**。市场大概率把这解读成“AI 需求仍强，但 2 月有季节性回落”。
-- **重要新闻**：
-  - [TSMC 2026 月营收页面](https://investor.tsmc.com/english/monthly-revenue/2026)
-  - [TSMC 4Q25 业绩](https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-01/3e49621566a3ca53bdf8aee2586929b666c17fd6/4Q25EarningsRelease.pdf)
-- **我的判断**：TSM 今天的小跌不算破坏趋势，更像是**营收高增长下的正常节奏波动**。
+  - [公司投资者关系页面](https://example.com)
+- **我的判断**：短线偏弱，但还需要结合后续基本面验证。
 
 ## 今天最值得盯的三条
-- **NBIS**：今天是你这组里最有“新增催化”的，APAC 扩张 + 美国 AI 工厂审批都在继续加码成长叙事。
-- **IREN**：消息面最强但股价反着走，说明市场更担心融资和兑现节奏，这类票后面波动会很大。
-- **NVDA / TSM / AMD**：这三只还是整个 AI 硬件链的核心温度计，尤其 NVDA 临近 GTC，短线会继续影响整条链。
+- **TICKER_A**：有明确催化和资金关注，适合继续跟踪验证。
+- **TICKER_B**：走势偏弱，更需要看后续基本面兑现。
+- **板块层面**：优先盯利率、财报、CapEx 和行业会议对整体风险偏好的影响。
