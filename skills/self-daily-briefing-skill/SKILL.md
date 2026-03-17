@@ -14,8 +14,11 @@ description: "自用日报 skill。用于生成综合早报、财经早报、科
 - 合并展示时，为避免双层标题重复，保留合并稿里的外层章节标题，去掉各源文件自身的首个 `# 标题` 行后再拼接正文。
 - 合并稿的章节标题应保留视觉识别，推荐使用带 emoji 的外层标题，例如 `🌅 一、综合早报`、`💰 二、财经早报`。
 - 标题层级应保持一致：合并稿主标题用 `#`，五个外层章节用 `##`，章节内部的小分组和“数据缺口”统一用 `###`。
+- 合并稿主标题后不要先放元信息列表；开头必须直接进入 `## 🌅 一、综合早报`。
+- 生成时间、数据窗口、合并来源、说明等元信息统一放到全文末尾，并用 Markdown 引用块表示。
 - 合并稿允许新增的内容只有：
-  - 顶部总标题、生成时间、数据窗口说明；
+  - 顶部总标题；
+  - 文末引用式元信息块（生成时间、数据窗口、合并来源、说明）；
   - 板块分隔符；
   - 美股股票早报板块；
   - 明确的数据缺口说明。
@@ -142,12 +145,6 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 ```markdown
 # Morning Brief | 2026-03-11
 
-- 生成时间：2026-03-11 14:58 CST
-- 合并来源：general_report.md / finance_report.md / tech_report.md / ai_daily_report.md + 美股股票早报
-- 说明：综合/财经/科技/AI 深度板块以下均直接来自已有日报内容。
-
----
-
 ## 🌅 一、综合早报
 
 ### 🌍 全网速览
@@ -159,6 +156,13 @@ python3 /Users/bytedance/.codex/skills/.system/skill-installer/scripts/install-s
 ## 📈 五、美股股票早报
 
 ...这里放美股正文...
+
+---
+
+> 生成时间：2026-03-11 14:58 CST  
+> 数据窗口：以当天公开网页和统一行情快照为准。  
+> 说明：综合/财经/科技/AI 深度板块以下均直接来自已有日报内容。  
+> 合并来源：general_report.md / finance_report.md / tech_report.md / ai_daily_report.md + 美股股票早报
 ```
 
 ### 综合早报示例
