@@ -5,9 +5,9 @@
 ## Skills
 
 - [`xiaohongshu-research`](./skills/xiaohongshu-research/SKILL.md)
-  使用已登录浏览器和小红书搜索/详情页做研究，结合正文、评论、图片、视频和作者主页来汇总真实用户反馈，并过滤高风险营销内容。
+  使用已登录账号的小红书做研究，结合正文、评论、图片、视频和作者主页来汇总真实用户反馈，并过滤高风险营销内容。
 - [`bilibili-video-reader`](./skills/bilibili-video-reader/SKILL.md)
-  读取 B 站视频的真实语音内容，下载音频后本地转写，再基于 transcript 做摘要，而不是只看标题、简介或评论。
+  读取 B 站视频的真实内容，总结视频输出的核心观点和关键帧
 - [`self-daily-briefing-skill`](./skills/self-daily-briefing-skill/SKILL.md)
   自用日报 skill，支持综合早报、财经早报、科技早报、AI 深度日报，以及美股自选股票早报。
 
