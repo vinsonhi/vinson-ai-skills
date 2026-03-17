@@ -18,6 +18,14 @@ This file defines how the **AI Agent** should construct the Daily Morning Briefi
 3.  **Deep Dive & Linking**:
     *   **Hacker News**: You **MUST** include `[Discussion](hn_url)` next to the Source.
     *   **Context**: Use the `content` field for deep analysis.
+4.  **Freshness Is Mandatory**:
+    *   `Global Scan` is for today's news, not "recent enough" background.
+    *   Before finalizing top items, compare candidate titles/themes against the last 3 delivered daily briefs if available.
+    *   If an item already appeared recently and today's dataset does not contain a clear new development, do **NOT** reuse it as a lead item.
+    *   If a repeated topic truly has a meaningful update, label it explicitly as follow-up / continued development instead of presenting it as a brand-new headline.
+5.  **Data Gaps Over Stale Fillers**:
+    *   If today's public sources are thin, write a `数据缺口` note.
+    *   Do **NOT** fill the section with an older official post just because it is reliable and easy to cite.
 
 ---
 
@@ -28,6 +36,7 @@ This file defines how the **AI Agent** should construct the Daily Morning Briefi
 *   **Selection Logic**:
     *   Prioritize "Breaking News" and "High Heat" items.
     *   Ensure diversity: Include at least 1 item from Finance, 1 from China Tech, 1 from Silicon Valley.
+    *   Reject stale repeats: an item that already led a recent brief without a same-day update cannot stay in the top slots.
 *   **Format**:
     *   **Format (Strict 4-Line List)**:
     ```markdown

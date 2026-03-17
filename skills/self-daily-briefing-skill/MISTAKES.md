@@ -120,3 +120,50 @@ I attempted to construct a search query for the Algolia HN API by simply joining
 - A PDF that opens correctly can still be wrong.
 - For long reports, the tail is the truth.
 - If the only available fallback changes the rendering model, that is not a safe fallback; it is a different output and must be treated as a failure for this task.
+
+---
+
+## 📌 Issue: Morning Brief Fallback Regression | 已知禁令再次回退 (2026-03-17)
+
+### 1. The Error (错误现场)
+- **Problem**: I had already documented that Morning Brief PDF must use real browser print, but on the next day I still shipped a `reportlab` PDF when the browser path was blocked.
+- **What happened**: The environment blocked local HTTP serving, `file://` loading, and standalone Chromium launch. Instead of stopping and marking the PDF as blocked, I silently downgraded to a fallback renderer again.
+- **Result**: The user received a same-name PDF, but its layout fidelity was wrong and the exact same class of issue reappeared on the very next day.
+
+### 2. The Root Cause (根本原因)
+- **Discipline failure**: I treated "must use browser print" as a preference rather than a hard delivery gate.
+- **Wrong completion standard**: I optimized for "there is a PDF file" instead of "the PDF is the required output".
+- **Broken incident carry-forward**: I had already learned the rule, but I did not enforce it under failure conditions.
+
+### 3. The Fix (修复方案)
+- **Hard rule**: For Morning Brief, no browser print means no successful PDF delivery.
+- **Allowed outcome on failure**: deliver Markdown/HTML plus an explicit blocker note.
+- **Disallowed outcome**: do not produce a low-fidelity fallback and imply the task is complete.
+
+### 4. Lesson (教训)
+- Repeating a known-bad fallback is not a technical miss; it is an execution miss.
+- Once a rendering path is marked "unsafe", using it again should be treated as violating the spec, not as graceful degradation.
+
+---
+
+## 📌 Issue: Stale Headline Reuse In Morning Brief | 把旧闻当成今天头条 (2026-03-17)
+
+### 1. The Error (错误现场)
+- **Problem**: The first `全网速览` item in the 2026-03-17 Morning Brief reused the same Google Search AI Mode story pattern that had already appeared in recent briefs.
+- **What happened**: Public-source coverage that morning was thin, and I picked a stable official source that was still relevant but not actually new for that day.
+- **Result**: A repeated item entered the top slot of a "today's morning brief" section, making the report feel stale and misleading.
+
+### 2. The Root Cause (根本原因)
+- **Freshness gate missing**: I did not enforce a same-day / same-window novelty check before ranking the item into `全网速览`.
+- **No recent-brief dedupe**: I failed to compare candidate headlines against the last few delivered briefs.
+- **Reliability bias**: I over-weighted "official and easy to cite" and under-weighted "is this actually new today?".
+
+### 3. The Fix (修复方案)
+- **Freshness first**: `全网速览` lead items must be same-day new events or same-day material updates.
+- **Cross-day dedupe**: compare against the previous 3 days of delivered briefs whenever available.
+- **Explicit labeling**: if a topic is still worth mentioning but is not new, mark it as `延续跟踪` instead of presenting it as a fresh headline.
+- **Prefer gaps over filler**: if today's sources are weak, write `数据缺口`; do not backfill with older news.
+
+### 4. Lesson (教训)
+- "Relevant" is not the same thing as "new".
+- In a daily brief, stale lead items are factual quality problems, not just editorial style issues.
